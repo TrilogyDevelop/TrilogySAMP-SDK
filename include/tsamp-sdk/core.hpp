@@ -2,6 +2,7 @@
 
 #include "chat.hpp"
 #include "dialog.hpp"
+#include "events.hpp"
 #include "network.hpp"
 
 struct PluginInfo {
@@ -15,15 +16,18 @@ class ICore {
   [[nodiscard]] virtual INetwork& GetNetwork() const = 0;
   [[nodiscard]] virtual IChat& GetChat() const = 0;
   [[nodiscard]] virtual IDialog& GetDialog() const = 0;
+  [[nodiscard]] virtual EventDispatcher<NetworkEventHandler>&
+  GetNetworkEventDispatcher() const = 0;
+  [[nodiscard]] virtual EventDispatcher<ChatEventHandler>&
+  GetChatEventDispatcher() const = 0;
 };
 
 class IPlugin {
  public:
-  virtual void OnLoad(ICore* core) = 0;
-  virtual void OnUnload() = 0;
   virtual PluginInfo& GetPluginInfo() = 0;
 
-  // todo: add to ICore
-  //   virtual INetworkHandler& GetNetworkHandler() = 0;
-  //   virtual IChatHandler& GetChatHandler() = 0;
+  virtual void OnLoad(ICore* core) = 0;
+  virtual void OnUnload() = 0;
+
+  virtual void OnTick() {};
 };

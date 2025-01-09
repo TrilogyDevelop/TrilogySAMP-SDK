@@ -2,7 +2,7 @@
 
 #include <string>
 
-class IChatHandler {};
+class ChatEventHandler {};
 
 class IChat {
  public:

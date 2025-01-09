@@ -1,20 +1,28 @@
 #include <tsamp-sdk/sdk.hpp>
 
-class TestPlugin : public IPlugin {
+class TestPlugin : public IPlugin, public NetworkEventHandler {
  private:
   ICore* core;
 
  public:
   void OnLoad(ICore* c) override {
     core = c;
-    const auto& network = core->GetNetwork();
-    const auto& chat = core->GetChat();
-    const auto& dialog = core->GetDialog();
-    // dialog.Show(0, 0, "Test", "Ok", "Cancel", "Test");
+
+    auto& network = core->GetNetwork();
+    auto& chat = core->GetChat();
+    auto& dialog = core->GetDialog();
+    auto& dispatcher = core->GetNetworkEventDispatcher();
+    dispatcher.AddEventHandler(this);
+
+    dialog.Show(0, 0, "Test", "Ok", "Cancel", "Test");
+
     // auto rakclient = network.GetRakClientInterface();
   }
 
-  void OnUnload() override {}
+  void OnUnload() override {
+    auto dispatcher = core->GetNetworkEventDispatcher();
+    dispatcher.RemoveEventHandler(this);
+  }
 
   PluginInfo& GetPluginInfo() override {
     static PluginInfo info;
@@ -23,6 +31,16 @@ class TestPlugin : public IPlugin {
     info.version = "1.0.0";
     return info;
   }
+
+  void OnTick() override {}
+
+  bool OnSendPacket(const std::string& packet) override { return true; }
+
+  bool OnReceivePacket(const std::string& packet) override { return true; }
+
+  bool OnSendRPC(const std::string& rpc) override { return true; }
+
+  bool OnReceiveRPC(const std::string& rpc) override { return true; }
 };
 
 SET_PlUGIN_ENTRY_POINT(TestPlugin)

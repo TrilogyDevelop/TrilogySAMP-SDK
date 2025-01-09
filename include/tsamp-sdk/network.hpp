@@ -9,11 +9,11 @@ class VehiclePool;
 class PickupPool;
 class ObjectPool;
 
-class INetworkHandler {
-  virtual bool OnSendPacket(const std::string& packet) = 0;
-  virtual bool OnReceivePacket(const std::string& packet) = 0;
-  virtual bool OnSendRPC(const std::string& rpc) = 0;
-  virtual bool OnReceiveRPC(const std::string& rpc) = 0;
+class NetworkEventHandler {
+  virtual bool OnSendPacket(const std::string& packet) { return true; };
+  virtual bool OnReceivePacket(const std::string& packet) { return true; };
+  virtual bool OnSendRPC(const std::string& rpc) { return true; };
+  virtual bool OnReceiveRPC(const std::string& rpc) { return true; };
 };
 
 class INetwork {
