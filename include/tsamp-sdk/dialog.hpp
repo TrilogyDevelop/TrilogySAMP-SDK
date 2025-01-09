@@ -2,9 +2,13 @@
 
 #include <string>
 
+enum DIALOG_TYPE : std::uint8_t {
+
+};
+
 class IDialog {
  public:
-  virtual void Show(std::uint16_t id, std::uint8_t type,
+  virtual void Show(std::uint16_t id, DIALOG_TYPE type,
                     const std::string& title, const std::string& left_button,
                     const std::string& right_button,
                     const std::string& text) = 0;
