@@ -4,10 +4,10 @@
 
 #include "events.hpp"
 
-class ScoreboardEventHandler {};
+class IScoreboardEventHandler {};
 
 class IScoreboard {
  public:
-  [[nodiscard]] virtual EventDispatcher<ScoreboardEventHandler>&
+  [[nodiscard]] virtual EventDispatcher<IScoreboardEventHandler>&
   GetEventDispatcher() const = 0;
 };
