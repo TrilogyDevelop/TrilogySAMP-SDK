@@ -4,11 +4,11 @@
 
 #include "events.hpp"
 
-class ChatEventHandler {};
+class IChatEventHandler {};
 
 class IChat {
  public:
-  [[nodiscard]] virtual EventDispatcher<ChatEventHandler>& GetEventDispatcher()
+  [[nodiscard]] virtual EventDispatcher<IChatEventHandler>& GetEventDispatcher()
       const = 0;
 
   virtual void AddEntry(const std::string& text,

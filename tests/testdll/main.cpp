@@ -1,6 +1,6 @@
 #include <trilogysamp-sdk/sdk.hpp>
 
-class TestPlugin : public IPlugin, public NetworkEventHandler {
+class TestPlugin : public IPlugin, public INetworkEventHandler {
  private:
   ICore* core;
 
