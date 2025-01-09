@@ -11,7 +11,7 @@ class TestPlugin : public IPlugin, public NetworkEventHandler {
     auto& network = core->GetNetwork();
     auto& chat = core->GetChat();
     auto& dialog = core->GetDialog();
-    auto& dispatcher = core->GetNetworkEventDispatcher();
+    auto& dispatcher = network.GetEventDispatcher();
     dispatcher.AddEventHandler(this);
 
     dialog.Show(0, 0, "Test", "Ok", "Cancel", "Test");
@@ -20,7 +20,7 @@ class TestPlugin : public IPlugin, public NetworkEventHandler {
   }
 
   void OnUnload() override {
-    auto dispatcher = core->GetNetworkEventDispatcher();
+    auto dispatcher = core->GetNetwork().GetEventDispatcher();
     dispatcher.RemoveEventHandler(this);
   }
 
