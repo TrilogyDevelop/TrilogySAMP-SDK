@@ -2,8 +2,8 @@
 
 #include "chat.hpp"
 #include "dialog.hpp"
-#include "events.hpp"
 #include "network.hpp"
+#include "scoreboard.hpp"
 
 struct PluginInfo {
   const char* name;
@@ -16,6 +16,7 @@ class ICore {
   [[nodiscard]] virtual INetwork& GetNetwork() const = 0;
   [[nodiscard]] virtual IChat& GetChat() const = 0;
   [[nodiscard]] virtual IDialog& GetDialog() const = 0;
+  [[nodiscard]] virtual IScoreboard& GetScoreboard() const = 0;
 };
 
 class IPlugin {
@@ -26,4 +27,5 @@ class IPlugin {
   virtual void OnUnload() = 0;
 
   virtual void OnTick() {};
+  virtual void OnInitialize() {};
 };
