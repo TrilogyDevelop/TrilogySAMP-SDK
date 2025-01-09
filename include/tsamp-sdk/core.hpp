@@ -16,10 +16,6 @@ class ICore {
   [[nodiscard]] virtual INetwork& GetNetwork() const = 0;
   [[nodiscard]] virtual IChat& GetChat() const = 0;
   [[nodiscard]] virtual IDialog& GetDialog() const = 0;
-  [[nodiscard]] virtual EventDispatcher<NetworkEventHandler>&
-  GetNetworkEventDispatcher() const = 0;
-  [[nodiscard]] virtual EventDispatcher<ChatEventHandler>&
-  GetChatEventDispatcher() const = 0;
 };
 
 class IPlugin {

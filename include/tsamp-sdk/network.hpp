@@ -3,6 +3,8 @@
 #include <cstdint>
 #include <string>
 
+#include "events.hpp"
+
 class RakClientInterface;
 class PlayerPool;
 class VehiclePool;
@@ -18,9 +20,11 @@ class NetworkEventHandler {
 
 class INetwork {
  public:
-  virtual RakClientInterface& GetRakClientInterface() const = 0;
-  virtual PlayerPool& GetPlayerPool() const = 0;
-  virtual VehiclePool& GetVehiclePool() const = 0;
-  virtual PickupPool& GetPickupPool() const = 0;
-  virtual ObjectPool& GetObjectPool() const = 0;
+  [[nodiscard]] virtual EventDispatcher<NetworkEventHandler>&
+  GetEventDispatcher() const = 0;
+  [[nodiscard]] virtual RakClientInterface& GetRakClientInterface() const = 0;
+  [[nodiscard]] virtual PlayerPool& GetPlayerPool() const = 0;
+  [[nodiscard]] virtual VehiclePool& GetVehiclePool() const = 0;
+  [[nodiscard]] virtual PickupPool& GetPickupPool() const = 0;
+  [[nodiscard]] virtual ObjectPool& GetObjectPool() const = 0;
 };
