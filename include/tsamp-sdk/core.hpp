@@ -12,9 +12,9 @@ struct PluginInfo {
 
 class ICore {
  public:
-  [[nodiscard]] virtual INetwork& GetNetwork() = 0;
-  [[nodiscard]] virtual IChat& GetChat() = 0;
-  [[nodiscard]] virtual IDialog& GetDialog() = 0;
+  [[nodiscard]] virtual INetwork& GetNetwork() const = 0;
+  [[nodiscard]] virtual IChat& GetChat() const = 0;
+  [[nodiscard]] virtual IDialog& GetDialog() const = 0;
 };
 
 class IPlugin {
