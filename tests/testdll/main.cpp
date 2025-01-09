@@ -14,7 +14,7 @@ class TestPlugin : public IPlugin, public NetworkEventHandler {
     auto& dispatcher = network.GetEventDispatcher();
     dispatcher.AddEventHandler(this);
 
-    dialog.Show(0, 0, "Test", "Ok", "Cancel", "Test");
+    dialog.Show(0, DIALOG_TYPE_LIST, "Test", "Ok", "Cancel", "Test");
 
     // auto rakclient = network.GetRakClientInterface();
   }
@@ -33,6 +33,8 @@ class TestPlugin : public IPlugin, public NetworkEventHandler {
   }
 
   void OnTick() override {}
+
+  void OnInitialize() override {}
 
   bool OnSendPacket(const std::string& packet) override { return true; }
 
