@@ -1,3 +1,4 @@
+#include <iostream>
 #include <trilogysamp-sdk/sdk.hpp>
 
 class TestPlugin : public IPlugin,
@@ -42,6 +43,10 @@ class TestPlugin : public IPlugin,
   void OnInitialize() override {
     auto& dialog = core->GetDialog();
     dialog.Show(0, DIALOG_TYPE_LIST, "Test", "Ok", "Cancel", "Test");
+
+    for (auto& player : core->GetNetwork().GetPlayerPool().GetAll()) {
+      std::cout << player.GetName() << std::endl;
+    }
   }
 
   bool OnSendPacket(const std::string& packet) override { return true; }
