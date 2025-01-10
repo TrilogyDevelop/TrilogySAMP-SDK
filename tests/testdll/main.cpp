@@ -44,6 +44,9 @@ class TestPlugin : public IPlugin,
     auto& dialog = core->GetDialog();
     dialog.Show(0, DIALOG_TYPE_LIST, "Test", "Ok", "Cancel", "Test");
 
+    static PlayerInfo player_info{};
+    core->GetNetwork().GetPlayerPool().Create(player_info);
+
     for (auto& player : core->GetNetwork().GetPlayerPool().GetAll()) {
       std::cout << player.GetName() << std::endl;
     }
