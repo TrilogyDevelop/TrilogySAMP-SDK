@@ -5,6 +5,7 @@
 #include "dialog.hpp"
 #include "logger.hpp"
 #include "network.hpp"
+#include "player_tags.hpp"
 #include "scoreboard.hpp"
 
 class ICoreEventHandler {
@@ -23,4 +24,5 @@ class ICore {
   [[nodiscard]] virtual IChat& GetChat() const = 0;
   [[nodiscard]] virtual IDialog& GetDialog() const = 0;
   [[nodiscard]] virtual IScoreboard& GetScoreboard() const = 0;
+  [[nodiscard]] virtual IPlayerTags& GetPlayerTags() const = 0;
 };
