@@ -7,5 +7,5 @@ target_sources(testdll PRIVATE
 )
 
 target_link_libraries(testdll PRIVATE
-    TSAMP-SDK
+    tsampsdk
 )
