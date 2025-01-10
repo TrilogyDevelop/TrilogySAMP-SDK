@@ -1,0 +1,3 @@
+#pragma oncee
+
+class IPickup {};
