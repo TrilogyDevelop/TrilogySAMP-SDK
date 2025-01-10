@@ -7,15 +7,16 @@
 #include "network.hpp"
 #include "scoreboard.hpp"
 
-class CoreEventHandler {
-  virtual bool OnTick() { return true; };
-  virtual bool OnInitialize() { return true; };
+class ICoreEventHandler {
+  virtual void OnTick() {};
+  virtual void OnInitialize() {};
 };
 
 class ICore {
  public:
-  [[nodiscard]] virtual EventDispatcher<CoreEventHandler>& GetEventDispatcher()
+  [[nodiscard]] virtual EventDispatcher<ICoreEventHandler>& GetEventDispatcher()
       const = 0;
+
   [[nodiscard]] virtual INetwork& GetNetwork() const = 0;
   [[nodiscard]] virtual IConfig& GetConfig() const = 0;
   [[nodiscard]] virtual ILogger& GetLogger() const = 0;

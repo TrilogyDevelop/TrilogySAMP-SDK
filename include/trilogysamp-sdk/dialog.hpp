@@ -19,5 +19,5 @@ class IDialog {
                     const std::string& text) = 0;
   virtual void Draw() = 0;
   virtual void Close(std::uint8_t response) = 0;
-  virtual bool IsEnable() = 0;
+  virtual bool IsEnable() const = 0;
 };

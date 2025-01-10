@@ -1,6 +1,8 @@
 #include <trilogysamp-sdk/sdk.hpp>
 
-class TestPlugin : public IPlugin, public INetworkEventHandler {
+class TestPlugin : public IPlugin,
+                   public INetworkEventHandler,
+                   ICoreEventHandler {
  private:
   ICore* core;
 
@@ -10,18 +12,21 @@ class TestPlugin : public IPlugin, public INetworkEventHandler {
 
     auto& network = core->GetNetwork();
     auto& chat = core->GetChat();
-    auto& dialog = core->GetDialog();
-    auto& dispatcher = network.GetEventDispatcher();
-    dispatcher.AddEventHandler(this);
+    auto& network_dispatcher = network.GetEventDispatcher();
+    network_dispatcher.AddEventHandler(this);
 
-    dialog.Show(0, DIALOG_TYPE_LIST, "Test", "Ok", "Cancel", "Test");
+    auto& core_dispatcher = core->GetEventDispatcher();
+    core_dispatcher.AddEventHandler(this);
 
     // auto rakclient = network.GetRakClientInterface();
   }
 
   void OnUnload() override {
-    auto dispatcher = core->GetNetwork().GetEventDispatcher();
-    dispatcher.RemoveEventHandler(this);
+    auto network_dispatcher = core->GetNetwork().GetEventDispatcher();
+    network_dispatcher.RemoveEventHandler(this);
+
+    auto core_dispatcher = core->GetEventDispatcher();
+    core_dispatcher.RemoveEventHandler(this);
   }
 
   PluginInfo& GetPluginInfo() override {
@@ -34,7 +39,10 @@ class TestPlugin : public IPlugin, public INetworkEventHandler {
 
   void OnTick() override {}
 
-  void OnInitialize() override {}
+  void OnInitialize() override {
+    auto& dialog = core->GetDialog();
+    dialog.Show(0, DIALOG_TYPE_LIST, "Test", "Ok", "Cancel", "Test");
+  }
 
   bool OnSendPacket(const std::string& packet) override { return true; }
 
