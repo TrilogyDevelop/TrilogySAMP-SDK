@@ -20,7 +20,7 @@ class EventDispatcher {
     return true;
   }
 
-  bool HasEventHandler(EventHandlerType* handler) {
+  [[nodiscard]] bool HasEventHandler(EventHandlerType* handler) const {
     if (handler == nullptr) return false;
     return handlers.find(handler) != handlers.end();
   }

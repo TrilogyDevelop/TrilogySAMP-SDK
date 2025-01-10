@@ -4,6 +4,6 @@
 
 class IPlayer {
  public:
-  virtual std::uint16_t GetId() const = 0;
-  virtual const std::string& GetName() const = 0;
+  [[nodiscard]] virtual std::uint16_t GetId() const = 0;
+  [[nodiscard]] virtual const std::string& GetName() const = 0;
 };
