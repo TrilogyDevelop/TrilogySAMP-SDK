@@ -9,7 +9,6 @@
 #include "net/network.hpp"
 #include "storage/storage.hpp"
 
-
 class ICoreEventHandler {
   virtual void OnTick() {};
   virtual void OnInitialize() {};
@@ -21,7 +20,7 @@ class ICore {
   GetEventDispatcher() = 0;
 
   [[nodiscard]] virtual INetwork& GetNetwork() = 0;
-  [[nodiscard]] virtual IStorage& GetStorage() = 0;
+  [[nodiscard]] virtual IStoragePool& GetStoragePool() = 0;
   [[nodiscard]] virtual IConfig& GetConfig() = 0;
   [[nodiscard]] virtual ILogger& GetLogger() = 0;
   [[nodiscard]] virtual IChat& GetChat() = 0;

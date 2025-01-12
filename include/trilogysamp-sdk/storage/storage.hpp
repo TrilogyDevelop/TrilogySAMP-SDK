@@ -5,7 +5,7 @@
 #include "player.hpp"
 #include "vehicle.hpp"
 
-class IStorage {
+class IStoragePool {
  public:
   [[nodiscard]] virtual IPlayerPool& GetPlayerPool() = 0;
   [[nodiscard]] virtual IVehiclePool& GetVehiclePool() = 0;

@@ -45,9 +45,9 @@ class TestPlugin : public IPlugin,
     dialog.Show(0, DIALOG_TYPE_LIST, "Test", "Ok", "Cancel", "Test");
 
     static PlayerInfo player_info{};
-    core->GetStorage().GetPlayerPool().Create(player_info);
+    core->GetStoragePool().GetPlayerPool().Create(player_info);
 
-    for (auto& player : core->GetStorage().GetPlayerPool().GetAll()) {
+    for (auto& player : core->GetStoragePool().GetPlayerPool().GetAll()) {
       std::cout << player.GetName() << std::endl;
     }
   }
