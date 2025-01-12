@@ -1,6 +1,6 @@
 #pragma once
 
-#include "pickup.hpp"
+#include "entities/pickup.hpp"
 #include "pool.hpp"
 
 constexpr std::uint16_t kMaxPickups = 4096;

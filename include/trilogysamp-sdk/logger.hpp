@@ -1,5 +1,7 @@
 #pragma once
 
+#include "events.hpp"
+
 class ILoggerEventHandler {
   virtual bool OnLog(const std::string& text) { return true; };
 };

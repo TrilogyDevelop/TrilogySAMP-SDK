@@ -1,12 +1,14 @@
 #pragma once
 
-#include "chat.hpp"
 #include "config.hpp"
-#include "dialog.hpp"
 #include "logger.hpp"
-#include "network.hpp"
-#include "player_tags.hpp"
-#include "scoreboard.hpp"
+#include "multiplayer/chat.hpp"
+#include "multiplayer/dialog.hpp"
+#include "multiplayer/player_tags.hpp"
+#include "multiplayer/scoreboard.hpp"
+#include "net/network.hpp"
+#include "storage/storage.hpp"
+
 
 class ICoreEventHandler {
   virtual void OnTick() {};
@@ -19,6 +21,7 @@ class ICore {
   GetEventDispatcher() = 0;
 
   [[nodiscard]] virtual INetwork& GetNetwork() = 0;
+  [[nodiscard]] virtual IStorage& GetStorage() = 0;
   [[nodiscard]] virtual IConfig& GetConfig() = 0;
   [[nodiscard]] virtual ILogger& GetLogger() = 0;
   [[nodiscard]] virtual IChat& GetChat() = 0;

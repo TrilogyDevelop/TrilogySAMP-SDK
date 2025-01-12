@@ -4,10 +4,6 @@
 #include <string>
 
 #include "events.hpp"
-#include "object_pool.hpp"
-#include "pickup_pool.hpp"
-#include "player_pool.hpp"
-#include "vehicle_pool.hpp"
 
 class RakClientInterface;
 
@@ -40,8 +36,4 @@ class INetwork {
   virtual void SetProxy(std::string host, std::uint16_t port) = 0;
   [[nodiscard]] virtual bool IsUseProxy() const = 0;
   [[nodiscard]] virtual RakClientInterface& GetRakClientInterface() = 0;
-  [[nodiscard]] virtual IPlayerPool& GetPlayerPool() = 0;
-  [[nodiscard]] virtual IVehiclePool& GetVehiclePool() = 0;
-  [[nodiscard]] virtual IPickupPool& GetPickupPool() = 0;
-  [[nodiscard]] virtual IObjectPool& GetObjectPool() = 0;
 };

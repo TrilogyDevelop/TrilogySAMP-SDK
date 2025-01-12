@@ -1,7 +1,8 @@
 #pragma once
 
+#include "entities/vehicle.hpp"
 #include "pool.hpp"
-#include "vehicle.hpp"
+
 
 constexpr std::uint16_t kMaxVehicles = 2000;
 
