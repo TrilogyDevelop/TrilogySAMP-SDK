@@ -7,7 +7,7 @@ class ILoggerEventHandler {
 class ILogger {
  public:
   [[nodiscard]] virtual EventDispatcher<ILoggerEventHandler>&
-  GetEventDispatcher() const = 0;
+  GetEventDispatcher() = 0;
 
   virtual void Log(const std::string& text) = 0;
 };

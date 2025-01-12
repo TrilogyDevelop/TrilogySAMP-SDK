@@ -9,5 +9,5 @@ class IScoreboardEventHandler {};
 class IScoreboard {
  public:
   [[nodiscard]] virtual EventDispatcher<IScoreboardEventHandler>&
-  GetEventDispatcher() const = 0;
+  GetEventDispatcher() = 0;
 };

@@ -8,8 +8,8 @@ class IChatEventHandler {};
 
 class IChat {
  public:
-  [[nodiscard]] virtual EventDispatcher<IChatEventHandler>& GetEventDispatcher()
-      const = 0;
+  [[nodiscard]] virtual EventDispatcher<IChatEventHandler>&
+  GetEventDispatcher() = 0;
 
   virtual void AddEntry(const std::string& text,
                         const std::uint32_t& color) = 0;

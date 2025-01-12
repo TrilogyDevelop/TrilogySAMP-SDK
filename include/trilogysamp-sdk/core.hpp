@@ -15,14 +15,14 @@ class ICoreEventHandler {
 
 class ICore {
  public:
-  [[nodiscard]] virtual EventDispatcher<ICoreEventHandler>& GetEventDispatcher()
-      const = 0;
+  [[nodiscard]] virtual EventDispatcher<ICoreEventHandler>&
+  GetEventDispatcher() = 0;
 
-  [[nodiscard]] virtual INetwork& GetNetwork() const = 0;
-  [[nodiscard]] virtual IConfig& GetConfig() const = 0;
-  [[nodiscard]] virtual ILogger& GetLogger() const = 0;
-  [[nodiscard]] virtual IChat& GetChat() const = 0;
-  [[nodiscard]] virtual IDialog& GetDialog() const = 0;
-  [[nodiscard]] virtual IScoreboard& GetScoreboard() const = 0;
-  [[nodiscard]] virtual IPlayerTags& GetPlayerTags() const = 0;
+  [[nodiscard]] virtual INetwork& GetNetwork() = 0;
+  [[nodiscard]] virtual IConfig& GetConfig() = 0;
+  [[nodiscard]] virtual ILogger& GetLogger() = 0;
+  [[nodiscard]] virtual IChat& GetChat() = 0;
+  [[nodiscard]] virtual IDialog& GetDialog() = 0;
+  [[nodiscard]] virtual IScoreboard& GetScoreboard() = 0;
+  [[nodiscard]] virtual IPlayerTags& GetPlayerTags() = 0;
 };

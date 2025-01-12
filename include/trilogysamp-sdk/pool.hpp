@@ -9,6 +9,6 @@ class IPool {
   virtual void Create(InfoType& data) = 0;
   virtual void Destroy(std::uint16_t id) = 0;
   [[nodiscard]] virtual std::uint16_t GetCount() const = 0;
-  [[nodiscard]] virtual EntityType& Get() const = 0;
-  [[nodiscard]] virtual std::vector<EntityType>& GetAll() const = 0;
+  [[nodiscard]] virtual EntityType& Get() = 0;
+  [[nodiscard]] virtual std::vector<EntityType>& GetAll() = 0;
 };

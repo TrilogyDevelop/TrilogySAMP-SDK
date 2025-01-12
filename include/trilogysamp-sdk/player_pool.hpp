@@ -10,6 +10,6 @@ struct PlayerInfo {};
 
 class IPlayerPool : public IPool<IPlayer, PlayerInfo> {
  public:
-  [[nodiscard]] virtual ILocalPlayer& GetLocal(std::uint16_t id) const = 0;
-  [[nodiscard]] virtual IRemotePlayer& GetRemote(std::uint16_t id) const = 0;
+  [[nodiscard]] virtual ILocalPlayer& GetLocal(std::uint16_t id) = 0;
+  [[nodiscard]] virtual IRemotePlayer& GetRemote(std::uint16_t id) = 0;
 };

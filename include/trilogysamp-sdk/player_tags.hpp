@@ -23,5 +23,5 @@ class IPlayerTagsEventHandler {
 
 class IPlayerTags {
   [[nodiscard]] virtual EventDispatcher<IPlayerTagsEventHandler>&
-  GetEventDispatcher() const = 0;
+  GetEventDispatcher() = 0;
 };

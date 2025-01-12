@@ -21,10 +21,10 @@ class INetworkEventHandler {
 class INetwork {
  public:
   [[nodiscard]] virtual EventDispatcher<INetworkEventHandler>&
-  GetEventDispatcher() const = 0;
-  [[nodiscard]] virtual RakClientInterface& GetRakClientInterface() const = 0;
-  [[nodiscard]] virtual IPlayerPool& GetPlayerPool() const = 0;
-  [[nodiscard]] virtual IVehiclePool& GetVehiclePool() const = 0;
-  [[nodiscard]] virtual IPickupPool& GetPickupPool() const = 0;
-  [[nodiscard]] virtual IObjectPool& GetObjectPool() const = 0;
+  GetEventDispatcher() = 0;
+  [[nodiscard]] virtual RakClientInterface& GetRakClientInterface() = 0;
+  [[nodiscard]] virtual IPlayerPool& GetPlayerPool() = 0;
+  [[nodiscard]] virtual IVehiclePool& GetVehiclePool() = 0;
+  [[nodiscard]] virtual IPickupPool& GetPickupPool() = 0;
+  [[nodiscard]] virtual IObjectPool& GetObjectPool() = 0;
 };
