@@ -3,7 +3,7 @@
 #include <cstdint>
 #include <string>
 
-#include "events.hpp"
+#include "../events.hpp"
 
 class RakClientInterface;
 

@@ -1,9 +1,8 @@
 #pragma once
 
-#include "entities/local_player.hpp"
-#include "entities/remote_player.hpp"
+#include "../entities/local_player.hpp"
+#include "../entities/remote_player.hpp"
 #include "pool.hpp"
-
 
 constexpr std::uint16_t kMaxPlayers = 1004;
 
